@@ -1,0 +1,50 @@
+# =====================
+# Python
+# =====================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# =====================
+# PyCharm / JetBrains
+# =====================
+.idea/
+*.iml
+out/
+
+# Local config
+.idea/workspace.xml
+.idea/usage.statistics.xml
+.idea/dictionaries
+.idea/shelf
+
+# =====================
+# Environment variables
+# =====================
+.env
+
+# =====================
+# Logs
+# =====================
+*.log
+
+# =====================
+# OS files
+# =====================
+.DS_Store
+Thumbs.db
+
+# =====================
+# Testing / cache
+# =====================
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
