@@ -13,7 +13,7 @@ dp = Dispatcher()
 async def main():
     dp.include_router(router)
     bot = Bot(token=token)
-    await dp.start_polling(bot=bot)
+    await dp.start_polling(bot)
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
