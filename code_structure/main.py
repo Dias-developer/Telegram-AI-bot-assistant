@@ -5,13 +5,19 @@ import logging
 import asyncio
 
 from handlers.commands import router
+from keyboard.menu import menu_router
+from handlers.chat import chat_router
 
 load_dotenv()
 token = getenv("TOKEN")
 dp = Dispatcher()
 
 async def main():
+
     dp.include_router(router)
+    dp.include_router(menu_router)
+    dp.include_router(chat_router)
+
     bot = Bot(token=token)
     await dp.start_polling(bot)
 
