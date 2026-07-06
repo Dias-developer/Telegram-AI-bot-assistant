@@ -6,12 +6,7 @@ chat_router = Router()
 
 @chat_router.message()
 async def ai_chat(message: Message):
-    print("USER ID:", message.from_user.id)
-    print("DICT:", user_mode)
-
     mode = user_mode.get(message.from_user.id)
-
-    print("MODE:", mode)
 
     if message.from_user.id not in user_mode:
         await message.answer("Выбери режим 👇")
