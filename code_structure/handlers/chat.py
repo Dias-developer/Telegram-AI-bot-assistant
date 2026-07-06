@@ -1,6 +1,7 @@
 from aiogram import Router
 from aiogram.types import Message
 from code_structure.state.states import user_mode
+from code_structure.services.ai import client, ask_ai, send_long_messages
 
 chat_router = Router()
 
@@ -13,6 +14,12 @@ async def ai_chat(message: Message):
         return
 
     if mode == "chat":
-        await message.answer("🤖 скоро будет ответ от AI")
+
+        response = await ask_ai(message.text)
+        await send_long_messages(message, response)
     elif mode == "text":
-        await message.answer("✍️ идет генерация текста...")
+        prompt = ("Ты профессиональный помощник по написанию текстов.\n"
+                  f"Запрос пользователя: {message.text}"
+                  )
+        response = await ask_ai(prompt)
+        await send_long_messages(message, response)
