@@ -1,4 +1,4 @@
-from aiogram import Router
+from aiogram import Router, F
 from aiogram.types import Message
 from code_structure.state.states import user_mode
 from code_structure.services.ai import ask_ai, send_long_messages
@@ -7,9 +7,10 @@ from code_structure.state.memory import (
     add_user_message,
     add_ai_message
 )
+from
 chat_router = Router()
 
-@chat_router.message()
+@chat_router.message(~F.text.startswith("/"))
 async def ai_chat(message: Message):
     mode = user_mode.get(message.from_user.id)
 

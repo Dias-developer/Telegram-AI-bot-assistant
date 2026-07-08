@@ -11,7 +11,7 @@ def add_user_message(user_id, text):
         "role": "user",
         "text": text
     })
-    history[user_id] = history[user_id][-20:]
+    history[user_id] = history[user_id][-10:]
 
 def add_ai_message(user_id, text):
     if user_id not in history:
@@ -21,4 +21,7 @@ def add_ai_message(user_id, text):
         "role": "model",
         "text": text
     })
-    history[user_id] = history[user_id][-20:]
+    history[user_id] = history[user_id][-10:]
+
+def clear_history(user_id):
+    history.pop(user_id, None)
