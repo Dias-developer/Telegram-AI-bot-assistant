@@ -20,7 +20,6 @@ async def ai_chat(message: Message):
         return
 
     if mode == "chat":
-
         user_id = message.from_user.id
 
         add_user_message(user_id, message.text)
